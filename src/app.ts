@@ -1,6 +1,7 @@
 import * as cors from 'cors';
 import * as express from 'express';
 import errorHandler from './middlewares/errorHandler';
+import usersRouter from './routes/users.routes';
 
 class App {
   public app: express.Express;
@@ -28,6 +29,7 @@ class App {
     this.app.use(express.json());
     this.app.use(cors());
     this.app.use(accessControl);
+    this.app.use(usersRouter);
     this.app.use(errorHandler);
   }
 
